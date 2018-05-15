@@ -1,0 +1,25 @@
+# 
+# 参数调优
+# 参数手册地址：http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
+# http://blog.csdn.net/qq_34605594/article/details/70756842
+# https://yq.aliyun.com/ziliao/142114
+
+[mysqld]
+
+# 参数的作用是,用来控制其通信缓冲区的最大长度.
+max_allowed_packet = 10M
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

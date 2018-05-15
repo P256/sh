@@ -1,0 +1,13 @@
+
+
+# 监控工具
+	lepus-(天兔)
+	innotop
+	MySQL Workbench
+
+# 中间件工具
+	oneproxy	https://github.com/onexsoft/oneproxy-monitor
+	MySQL Router 是轻量级 MySQL 中间件
+	Atlas
+	
+	

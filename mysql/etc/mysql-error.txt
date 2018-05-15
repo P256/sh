@@ -1,0 +1,13 @@
+# 
+# 异常错误
+# 参数手册地址：http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
+#
+
+[mysqld]
+
+# 服务器抛出：The MySQL Server returned this Error:MySQL Error Nr.2006-MySQL server has gone away
+# 操作：由于有些数据很大,会出现这样的错误。
+
+# 抛出错误日志：Got a packet bigger than 'max_allowed_packet' bytes
+# 参数的作用是,用来控制其通信缓冲区的最大长度.
+max_allowed_packet = 10M

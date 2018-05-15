@@ -1,0 +1,71 @@
+ES集群管理
+
+#mysql=>数据库databases=>表tables=>行rows=>列columns
+#es=>索引indices=>类型types=>文档documents=>字段fields
+
+ES提供了很多全面的API，大致可以分成如下几种：
+	1 检查集群、节点、索引的健康情况
+	2 管理集群、节点，索引数据、元数据
+	3 执行CRUD，创建、读取、更新、删除 以及 查询
+	4 执行高级的查询操作，比如分页、排序、脚本、聚合等
+
+查看集群状态:
+	curl 'localhost:9200/_cat/health?v'
+
+集群状态:
+	1 绿色:最健康的状态,代表所有的分片包括备份都可用.
+	2 黄色:基本的分片可用,但是备份不可用（也可能是没有备份）
+	3 红色:部分的分片可用,表明分片有一部分损坏。此时执行查询部分数据仍然可以查到，遇到这种情况，还是赶快解决比较好。
+
+查询节点列表:
+	curl 'localhost:9200/_cat/nodes?v'
+
+查看所有的索引
+	curl 'localhost:9200/_cat/indices?v'
+
+在ES中索引有两个意思：
+	1 动词的索引，表示把数据存储到ES中，提供搜索的过程；这期间可能正在执行一个创建搜索的过程。
+	2 名字的索引，它是ES中的一个存储类型，与数据库类似，内部包含type字段，type中包含各种文档。
+
+创建索引
+	curl -XPUT 'localhost:9200/customer'
+
+插入数据
+	curl -XPUT 'localhost:9200/customer/external/1'-d '
+	{
+	  "name": "John Doe"
+	}'
+	
+查询数据
+	curl 'localhost:9200/customer/external/1'
+	
+删除索引
+	curl -XDELETE 'localhost:9200/customer'
+
+分页查询From&Size
+	&size=1&from=5000
+
+格式化输出
+	?pretty
+
+过滤字段
+	_source=tel
+
+关键词query
+	&q=name:*
+
+排序
+	&sort=id:desc
+
+
+
+
+
+
+
+
+
+
+
+
+
