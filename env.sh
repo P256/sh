@@ -26,6 +26,8 @@ cd /etc/yum.repos.d/
 mv CentOS-Base.repo CentOS-Base.repo.backup
 # 下载163源文件
 curl -O http://mirrors.163.com/.help/CentOS7-Base-163.repo
+# 安装epel源
+yum install epel-release
 # 清理缓存
 yum clean all
 # 生成缓存
