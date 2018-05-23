@@ -65,7 +65,11 @@ cd $nginx
 # --http-log-path=$webLog/http.log
 # --error-log-path=$webLog/error.log
 # --with-http_stub_status_module
-# --with-openssl=../$openssl --with-http_ssl_module
+# --with-openssl=../$openssl
+# --with-http_ssl_module
+#【可选扩展=>rtmp】
+# --add-module=../nginx-rtmp-module-1.2.1
+# https://codeload.github.com/arut/nginx-rtmp-module/zip/v1.2.1
 # 
 ./configure --prefix=$webPath --user=$webUser --group=$webGroup --sbin-path=$webPath/sbin/nginx --conf-path=$webEtc/conf/nginx.conf --pid-path=$webTmp/nginx.pid --lock-path=$webTmp/nginx.lock --http-log-path=$webLog/http.log --error-log-path=$webLog/error.log --http-client-body-temp-path=$webTmp/client/ --http-proxy-temp-path=$webTmp/proxy --http-fastcgi-temp-path=$webTmp/fastcgi --http-uwsgi-temp-path=$webTmp/uwsgi --http-scgi-temp-path=$webTmp/scgi --with-pcre=../$pcre --with-zlib=../$zlib --with-threads --with-http_stub_status_module --with-openssl=../$openssl --with-http_ssl_module --with-debug
 #
