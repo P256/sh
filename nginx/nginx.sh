@@ -110,3 +110,10 @@ firewall-cmd --zone=public --add-port=80/tcp --permanent
 
 # 重启防火墙
 firewall-cmd --reload
+#
+#启动： systemctl start firewalld
+#查看状态： systemctl status firewalld 
+#停止： systemctl disable firewalld
+#禁用： systemctl stop firewalld
+
+
