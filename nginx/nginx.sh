@@ -82,6 +82,10 @@ cd $nginx
 #            #rtmp推流请求路径
 #            live on;
 #            record off;
+#            hls on;
+#            hls_path /data/media/hls;   
+#            hls_fragment 1s;
+#            hls_playlist_length 3s;
 #        }
 #    }
 #}
