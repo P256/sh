@@ -46,8 +46,17 @@ yum history list
 #4.service smb restart       #重启服务，但在实际中一般不采用
 #5.service smb reload       #重载服务，在实际中较常用，不用停止服务
 
-# 关闭防火墙与SELinux
+# 关闭防火墙
 systemctl stop firewalld.service
+
+# 关闭SELinux的两种方式：临时关闭和永久关闭
+# 1.临时关闭
+# setenforce 0 设置SELinux为permissive模式
+# setenforce 1 设置SELinux为enforcing模式
+setenforce 0
+# 2.永久关闭          
+# 修改配置文件并重启 <SELINUX=enforcing 改为 SELINUX=disabled>
+vim /etc/selinux/config
 
 # 配置文件说明
 #vim /etc/samba/smb.conf
