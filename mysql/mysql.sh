@@ -50,17 +50,20 @@ tar zxf boost_1_59_0.tar.gz
 # 官方下载路径：
 # http://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.17.tar.gz
 # http://cdn.mysql.com//Downloads/MySQL-5.7/mysql-boost-5.7.17.tar.gz
+# https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-boost-5.7.22.tar.gz
 # To CDN 
 # http://120.52.72.23/cdn.mysql.com/c3pr90ntc0td//Downloads/MySQL-5.7/mysql-5.7.17.tar.gz
 # http://120.52.72.23/cdn.mysql.com/c3pr90ntc0td//Downloads/MySQL-5.7/mysql-boost-5.7.17.tar.gz
+# https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-boost-5.7.22.tar.gz
+
 echo "4.2下载Mysql"
-mysqlFile=mysql-5.7.18.tar.gz
-mysqlFileDir=mysql-5.7.18
-curl -O http://120.52.72.23/cdn.mysql.com/c3pr90ntc0td//Downloads/MySQL-5.7/$mysqlFile
+mysqlFile=mysql-5.7.22.tar.gz
+mysqlFileDir=mysql-5.7.22
+curl -O https://cdn.mysql.com//Downloads/MySQL-5.7/$mysqlFile
 echo "5.安装mysql"
 tar zxf $mysqlFile
 cd $mysqlFileDir
-# 编译配置
+# 编译配置【默认为无boost版本，如有更改路径-DWITH_BOOST=../boost_1_59_0  => DWITH_BOOST=boost 即可】
 cmake . \
  -DCMAKE_INSTALL_PREFIX=$mysqlPath \
  -DMYSQL_DATADIR=$mysqlData \
@@ -81,8 +84,10 @@ cmake . \
  -DDEFAULT_COLLATION=utf8_general_ci \
  -DWITH_EMBEDDED_SERVER=1
 # 没有-DWITH_LOBWRAP=0 \
-# 手动配置
+# 手动配置-【无boost】
 #cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_DATADIR=/data/mysql -DDOWNLOAD_BOOST=1 -DWITH_BOOST=../boost_1_59_0 -DSYSCONFDIR=/etc/mysql -DMYSQL_UNIX_ADDR=/tmp/mysql/mysql.sock -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_PARTITION_STORAGE_ENGINE=1 -DWITH_FEDERATED_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_MYISAM_STORAGE_ENGINE=1 -DWITH_ARCHIVE_STORAGE_ENGINE=1 -DENABLED_LOCAL_INFILE=1 -DENABLE_DTRACE=0 -DDEFAULT_CHARSET=utf8mb4 -DDEFAULT_COLLATION=utf8mb4_general_ci -DWITH_EMBEDDED_SERVER=1
+# 手动配置-【有boost】
+#cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_DATADIR=/data/mysql -DDOWNLOAD_BOOST=1 -DWITH_BOOST=boost -DSYSCONFDIR=/etc/mysql -DMYSQL_UNIX_ADDR=/tmp/mysql/mysql.sock -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_PARTITION_STORAGE_ENGINE=1 -DWITH_FEDERATED_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_MYISAM_STORAGE_ENGINE=1 -DWITH_ARCHIVE_STORAGE_ENGINE=1 -DENABLED_LOCAL_INFILE=1 -DENABLE_DTRACE=0 -DDEFAULT_CHARSET=utf8mb4 -DDEFAULT_COLLATION=utf8mb4_general_ci -DWITH_EMBEDDED_SERVER=1
 #
 # 编译配置说明
 #-DCMAKE_INSTALL_PREFIX= 				指向mysql安装目录
