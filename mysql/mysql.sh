@@ -168,8 +168,13 @@ vi $mysqlEtc/my.cnf
 #character-set-server=utf8
 # 创建新表时将使用的默认存储引擎
 #default-storage-engine=INNODB
-#
+# socket
 #socket=/tmp/mysql.sock
+#[mysqld_safe]
+# 日志
+#log-error=/var/log/mysqld.log
+# 进程
+#pid-file=/var/run/mysqld/mysqld.pid
 #[mysql]
 # 设置mysql客户端默认字符集
 #default-character-set=utf8
