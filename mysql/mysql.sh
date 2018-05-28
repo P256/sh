@@ -153,13 +153,27 @@ echo "7.手动配置文件"
 # 手动配置文件
 vi $mysqlEtc/my.cnf
 # 配置文件
-#[mysqld]
-#basedir = /usr/local/mysql
-#datadir = /data/mysql
+#[Client]
 #port = 3306
-#log-error = /data/log/mysql/error.log
-#pid-file = /data/mysql/local.pid
-#socket = /tmp/mysql.sock
+#[mysqld]
+#设置3306端口
+#port = 3306
+# 设置mysql的安装目录
+#basedir=/usr/local/mysql
+# 设置mysql数据库的数据的存放目录
+#datadir=/data/mysql
+# 允许最大连接数
+#max_connections=200
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+#character-set-server=utf8
+# 创建新表时将使用的默认存储引擎
+#default-storage-engine=INNODB
+#
+#socket=/tmp/mysql.sock
+#[mysql]
+# 设置mysql客户端默认字符集
+#default-character-set=utf8
+
 #
 echo "8.初始化数据库"
 # 初始化库文件
@@ -168,7 +182,7 @@ echo "8.初始化数据库"
 #	--initialize-insecure 生成空密码
 #	--innodb_undo_tablespaces=3	[可选]设定创建的undo表空间的个数
 bin/mysqld --initialize-insecure --basedir=$mysqlPath --datadir=$mysqlData --user=$mysqlUser
-# bin/mysqld --initialize-insecure --basedir=/usr/local/mysql --datadir=/data/mysql --user=mysql
+# bin/mysqld --initialize-insecure --basedir=/usr/local/mysql --datadir=/data/mysql --pid-file=/tmp/mysql.pid --user=mysql
 #
 echo "9.启动服务,连接Mysql服务器"
 # 启动服务
