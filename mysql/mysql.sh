@@ -173,7 +173,7 @@ vi $mysqlEtc/my.cnf
 # 日志
 #log-error=/var/log/mysqld.log
 # 进程
-#pid-file=/var/run/mysqld/mysqld.pid
+#pid-file=/var/run/mysqld.pid
 #[mysql]
 # 设置mysql客户端默认字符集
 #default-character-set=utf8
