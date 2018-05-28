@@ -170,7 +170,6 @@ vi $mysqlEtc/my.cnf
 #default-storage-engine=INNODB
 # socket
 #socket=/tmp/mysql.sock
-#[mysqld_safe]
 # 日志
 #log-error=/var/log/mysqld.log
 # 进程
