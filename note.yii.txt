@@ -1,6 +1,0 @@
-migrate:
-	yii migrate --migrationPath=@yii/rbac/migrations
-	yii migrate --migrationPath=@yii/cache/migrations
-	yii migrate --migrationPath=@yii/log/migrations
-	yii migrate --migrationPath=@yii/i18n/migrations
-	yii migrate --migrationPath=@f256/migrations
