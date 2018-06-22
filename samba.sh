@@ -14,22 +14,25 @@ cp /etc/samba/smb.conf /etc/samba/smb.conf.bakup
 vim /etc/samba/smb.conf
 
 # 创建用户组
-groupadd data
+groupadd web
 
 # 添加用户并授予主目录和分组，并不能登录
 useradd data -d /data -s /sbin/nologin -g data
 
 # 修改用户主目录
-usermod -d /data data
+usermod -d /data/web data
+
+# 创建samba用户(这个是系统用户)并给每个用户设置密码
+smbpasswd  -a web
 
 # 设置用户密码
-pdbedit -a -u data
+pdbedit -a -u web
 
-# 查看用户
+# 查看smb用户
 pdbedit -L
 
-# 创建samba用户并给每个用户设置密码
-smbpasswd  -a data
+# 删除smb用户
+smbpasswd -x web
 
 # 启动
 service smb start
