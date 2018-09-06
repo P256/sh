@@ -1,7 +1,7 @@
-yum install psmisc
+yum install psmisc supervisor
+ 
+yum install tcpdump lsof perf
 
-yum install tcpdump
-
-yum install supervisor
-
-yum install net-tools
+# 查看端口使用情况
+ss -tln
+ss -tlnp | grep 4567
