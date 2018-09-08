@@ -1,9 +1,11 @@
 参考官方文档
 
     telegraf: https://docs.influxdata.com/telegraf/v1.0/
-    influxdb: https://docs.influxdata.com/influxdb/v1.0
+    influxdb: https://docs.influxdata.com/influxdb/v1.0/
     grafana:  http://docs.grafana.org/
     nodejs:   https://nodejs.org/en/docs/
+    golang:   http://golang.google.cn/doc/
+              https://golang.google.cn/dl/
     
     https://blog.csdn.net/li_xue_zhao/article/details/79800140
     https://blog.csdn.net/w958660278/article/details/80484486
@@ -33,7 +35,20 @@ tar -zxvf grafana-5.2.4.linux-amd64.tar.gz
 # RPM包
 wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.2.4-1.x86_64.rpm
 yum localinstall grafana-5.2.4-1.x86_64.rpm
-# 源码包 - 需要Node+Go支持
-#
+
+####################################################################################################
+# 源码包 
+####################################################################################################
+# go
+curl -O https://dl.google.com/go/go1.11.src.tar.gz
+# node
+curl -O https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.gz
+# grafana
+https://github.com/grafana/grafana/archive/v5.2.4.tar.gz
+# influxdata
+https://github.com/influxdata/influxdb/archive/v1.6.2.tar.gz
+# telegraf
+https://github.com/influxdata/telegraf/archive/1.7.4.tar.gz
+####################################################################################################
 
 
