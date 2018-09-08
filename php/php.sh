@@ -47,7 +47,7 @@ cd ../
 echo "4.安装PHP"
 # 下载
 #http://cn2.php.net/distributions/php-7.1.8.tar.gz 
-#http://cn2.php.net/distributions/php-7.2.8.tar.gz 
+#http://cn2.php.net/distributions/php-7.2.9.tar.gz 
 phpFile=php-7.1.8.tar.gz
 phpFileDir=php-7.1.8
 curl -O http://cn2.php.net/distributions/${phpFile}
