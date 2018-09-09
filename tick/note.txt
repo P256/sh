@@ -33,10 +33,11 @@
 curl -O https://dl.google.com/go/go1.11.linux-amd64.tar.gz
 curl -O https://nodejs.org/dist/v8.11.4/node-v8.11.4-linux-x64.tar.xz
 curl -O https://dl.influxdata.com/influxdb/releases/influxdb-1.6.2_linux_amd64.tar.gz
+curl -O https://dl.influxdata.com/telegraf/releases/telegraf-1.7.4_linux_amd64.tar.gz
 curl -O https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.2.4.linux-amd64.tar.gz
 
 ####################################################################################################
-# RPM包
+# RPM版本
 curl -O https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.2.4-1.x86_64.rpm
 yum localinstall grafana-5.2.4-1.x86_64.rpm
 
@@ -44,7 +45,7 @@ curl -O https://dl.influxdata.com/influxdb/releases/influxdb-1.6.2.x86_64.rpm
 yum localinstall influxdb-1.6.2.x86_64.rpm
 
 ####################################################################################################
-# 源码包 
+# 源码版本
 # golang 依赖go 1.4
 curl -O https://dl.google.com/go/go1.11.src.tar.gz
 
