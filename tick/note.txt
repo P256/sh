@@ -28,27 +28,58 @@
 工具
   wrk 
 
-
+####################################################################################################
 # 二进制版本
 curl -O https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.2.4.linux-amd64.tar.gz
-tar -zxvf grafana-5.2.4.linux-amd64.tar.gz
+curl -O https://dl.google.com/go/go1.11.linux-amd64.tar.gz
+curl -O https://nodejs.org/dist/v8.11.4/node-v8.11.4-linux-x64.tar.xz
+
+####################################################################################################
 # RPM包
-wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.2.4-1.x86_64.rpm
+curl -O https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.2.4-1.x86_64.rpm
 yum localinstall grafana-5.2.4-1.x86_64.rpm
 
 ####################################################################################################
 # 源码包 
-####################################################################################################
-# go
+# golang 依赖go 1.4
 curl -O https://dl.google.com/go/go1.11.src.tar.gz
-# node
+
+####################################################################################################
+# nodejs 依赖g++ 4.8 
 curl -O https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.gz
+cd node-v8.11.4
+./configure --prefix=/usr/local/nodejs
+make
+make install
+
+####################################################################################################
 # grafana
 https://github.com/grafana/grafana/archive/v5.2.4.tar.gz
-# influxdata
+
+####################################################################################################
+# influxdb
 https://github.com/influxdata/influxdb/archive/v1.6.2.tar.gz
+
+####################################################################################################
 # telegraf
 https://github.com/influxdata/telegraf/archive/1.7.4.tar.gz
+
+####################################################################################################
+
+
+vi /etc/profile
+####################################################################################################
+#set for nodejs
+export NODEPATH=/usr/local/node
+export PATH=$NODEPATH/bin:$PATH
+
+#set for golang
+export GOROOT=/usr/local/go
+export GOPATH=/data/golang
+export PATH=$GOROOT/bin:$PATH
+
+#
+source /etc/profile
 ####################################################################################################
 
 
