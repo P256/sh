@@ -75,8 +75,8 @@ https://github.com/influxdata/telegraf/archive/1.7.4.tar.gz
 vi /etc/profile
 ####################################################################################################
 #set for nodejs
-export NODEPATH=/usr/local/node
-export PATH=$NODEPATH/bin:$PATH
+export NODE_HOME=/usr/local/node
+export PATH=$NODE_HOME/bin:$PATH
 
 #set for golang
 export GOROOT=/usr/local/go
