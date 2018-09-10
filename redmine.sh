@@ -14,10 +14,8 @@ curl -O https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.gz
 make
 make install
 # yum install ruby
-
 # profile
 echo 'export PATH="${PATH}:/usr/local/ruby/bin"' >> /etc/profile
-
 #
 gem sources -l
 #
