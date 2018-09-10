@@ -26,3 +26,6 @@ adduser es
 chown es:es es -R
 su es
 ./bin/elasticsearch
+#
+# 配置文件
+# https://blog.csdn.net/qq_34021712/article/details/79342668
