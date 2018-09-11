@@ -1,52 +1,54 @@
-uname -a
- 
-history
- 
-lsblk -l
- 
-ip route show
- 
-rpm -qa packet
-#设置静态IP地址
-vi /etc/sysconfig/network-scripts/ifcfg-eth0
-#修改如下内容
-#BOOTPROTO="static" #dhcp改为static   
-#ONBOOT="yes" #开机启用本配置  
-#IPADDR=192.168.100.86 #静态IP  
-#GATEWAY=192.168.100.11 #默认网关  
-#NETMASK=255.255.255.0 #子网掩码  
-#DNS1=192.168.100.11 #DNS 配置
-service network restart
+##########################################################################################
+# 防火墙开启80端口
+# 命令含义
+# --zone #作用域 
+# --add-port=80/tcp  #添加端口,格式为：端口/通讯协议
+# --permanent   #永久生效,没有此参数重启后失效
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+# 重启防火墙
+firewall-cmd --reload
+# 停止
+systemctl stop firewalld.service
+# 禁止
+systemctl disable firewalld.service
+# 状态
+systemctl status firewalld.service
+#
+##########################################################################################
 
-cat /etc/redhat-release
 
+
+
+###########################################################################################
+# 
+mount -l
+# 挂载win共享文件夹
+mount -t cifs -o username="S256",password="sa123456",rw,dir_mode=0775,file_mode=0775,uid=994,gid=992 //192.168.8.1/code/php /data/web
+# 卸载win共享文件夹
+umount /data/web
+# 如：
+#mount -t cifs -o username="S256",password="sa123456",rw,dir_mode=0775,file_mode=0775,uid=995,gid=993 //192.168.8.1/code/php /data/web
+#mount -t cifs -o username="S256",password="sa123456" //192.168.8.1/code/pack /
+###########################################################################################
+
+
+
+
+
+######################################################################################################
+# 查看安装历史
+yum history list packName
+# 回退某个安装版本
+yum history undo 7
+
+rpm -qa php
 rpm -qa | wc -l
 rpm -qa | sort
+###########################################################################################
 
-#检查内核版本
-uname –r
-#查看磁盘
-df -Th
 
-######################################################################################################################################################################################
-#直接关闭防火墙
-systemctl stop firewalld.service #停止firewall
-systemctl disable firewalld.service #禁止firewall开机启动
-systemctl status firewalld.service #firewall 状态
-#
-######################################################################################################################################################################################
-#设置 iptables service
-yum -y install iptables-services
 
-#如果要修改防火墙配置，如增加防火墙端口3306
-vi /etc/sysconfig/iptables 
 
-#增加规则
--A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
 
-#保存退出后
-systemctl restart iptables.service #重启防火墙使配置生效
-systemctl enable iptables.service #设置防火墙开机启动
 
-#最后重启系统使设置生效即可
-######################################################################################################################################################################################
+

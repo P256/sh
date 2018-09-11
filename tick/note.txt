@@ -6,16 +6,8 @@
     nodejs:   https://nodejs.org/en/docs/
     golang:   http://golang.google.cn/doc/
               https://golang.google.cn/dl/
-    
-    https://blog.csdn.net/li_xue_zhao/article/details/79800140
-    https://blog.csdn.net/w958660278/article/details/80484486
-    https://www.jianshu.com/p/378d0005c0a4
-    https://www.jianshu.com/p/dfd329d30891
-    https://blog.csdn.net/liurui_wuhan/article/details/79001756
-    https://blog.csdn.net/liurui_wuhan/article/details/79001756
-    https://www.cnblogs.com/ycyzharry/p/8372168.html
-
-
+              
+####################################################################################################
 界面
   Grafana
 
