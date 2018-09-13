@@ -1,7 +1,8 @@
 ES集群管理
 
-#mysql=>数据库databases=>表tables=>行rows=>列columns
-#es=>索引indices=>类型types=>文档documents=>字段fields
+# https://www.elastic.co/guide/cn/elasticsearch/guide/current/get-doc.html
+# mysql	=> 数据库databases	=> 表tables	=> 行rows		=> 列columns
+# es 	=> 索引indices		=> 类型types	=> 文档documents	=> 字段fields
 
 ES提供了很多全面的API，大致可以分成如下几种：
 	1 检查集群、节点、索引的健康情况
@@ -27,20 +28,18 @@ ES提供了很多全面的API，大致可以分成如下几种：
 	1 动词的索引，表示把数据存储到ES中，提供搜索的过程；这期间可能正在执行一个创建搜索的过程。
 	2 名字的索引，它是ES中的一个存储类型，与数据库类似，内部包含type字段，type中包含各种文档。
 
+
 创建索引
-	curl -XPUT 'localhost:9200/customer'
+	curl -XPUT '192.168.1.102:9200/books'
 
 插入数据
-	curl -XPUT 'localhost:9200/customer/external/1'-d '
-	{
-	  "name": "John Doe"
-	}'
+	curl -X PUT "192.168.1.102:9200/books/20180913/1" -H 'Content-Type: application/json' -d'{"title": "我的标题","text":  "我是文本","date":  "2014/01/01"}'
 	
 查询数据
-	curl 'localhost:9200/customer/external/1'
+	curl '192.168.1.102:9200/books/20180913/1'
 	
 删除索引
-	curl -XDELETE 'localhost:9200/customer'
+	curl -XDELETE '192.168.1.102:9200/books'
 
 分页查询From&Size
 	&size=1&from=5000

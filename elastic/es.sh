@@ -22,4 +22,6 @@ su es
 # elasticsearch.yml
 #######################################################################################
 # https://blog.csdn.net/qq_34021712/article/details/79342668
+# https://www.cnblogs.com/blogjun/articles/8086193.html
+# https://www.elastic.co/guide/cn/elasticsearch/guide/current/get-doc.html
 #######################################################################################
