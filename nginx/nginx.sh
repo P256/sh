@@ -45,6 +45,8 @@ tar -zxf ${zlib}.tar.gz
 tar -zxf ${openssl}.tar.gz
 tar -zxf ${pcre}.tar.gz
 # http://nginx.org/download/nginx-1.12.0.tar.gz
+# http://nginx.org/download/nginx-1.12.2.tar.gz
+# http://nginx.org/download/nginx-1.14.0.tar.gz
 # 下载NG
 # 设置版本号
 nginx=nginx-1.12.0

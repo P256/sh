@@ -37,4 +37,7 @@ mv ../logstash/config/logstash-sample.conf ../logstash/config/logstash.conf
 #######################################################################################
 #
 curl -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.4.0-linux-x86_64.tar.gz
-# 
+#
+tar zxvf filebeat-6.4.0-linux-x86_64.tar.gz
+#
+mv filebeat-6.4.0 ../filebeat
