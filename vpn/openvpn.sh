@@ -78,5 +78,7 @@ sysctl -p
 
 /usr/local/openvpn/sbin/openvpn --config /usr/local/openvpn/etc/server.conf
 
+/usr/local/openvpn/sbin/openvpn --genkey --secret /usr/local/openvpn/etc/ta.key
 
-/usr/local/openvpn/sbin/openvpn --genkey --secert ta.key
+
+
