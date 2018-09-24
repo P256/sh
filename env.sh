@@ -11,6 +11,7 @@ ip route show
 # 可设置静态IP
 #vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
 # 修改如下内容
+#BOOTPROTO="dhcp"
 #BOOTPROTO="static"
 #IPADDR=192.168.1.10
 #GATEWAY=192.168.1.1

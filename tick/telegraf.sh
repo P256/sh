@@ -11,3 +11,9 @@ cp -fr ./telegraf/etc/telegraf/telegraf.conf ../telegraf/etc/
 cd ../telegraf
 #
 ./bin/telegraf -config ./etc/telegraf.conf
+
+#./bin/telegraf -sample-config -input-filter cpu:mem:disk -output-filter influxdb > telegraf.conf
+
+#./bin/telegraf -sample-config -input-filter cpu:mem:disk -output-filter influxdb > ./etc/telegraf/telegraf.conf 
+
+#./bin/telegraf -config ./etc/telegraf/telegraf.conf 
