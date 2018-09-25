@@ -18,6 +18,6 @@ systemctl start kube-scheduler
 systemctl start kubelet
 systemctl start kube-proxy
 
-
-
-
+#https://cloud.tencent.com/developer/article/1138668
+#https://kubernetes.io/docs/setup/independent/install-kubeadm/
+#yum install kubelet kubeadm kubectl --disableexcludes=kubernetes

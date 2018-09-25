@@ -1,8 +1,0 @@
-¹Ù·½ÍøÕ¾£ºhttps://docs.docker.com/linux/started/
-
-https://github.com/boot2docker/windows-installer/releases
-
-$docker version
-
- yum install docker
-https://zealdocs.org/

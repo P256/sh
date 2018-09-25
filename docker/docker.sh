@@ -2,13 +2,25 @@
 
 # 1.检查内核版本(Docker要求CentOS系统的内核版本高于3.10)
 uname –r
+# 
+cat /etc/redhat-release
+cat /etc/hosts
 
-# 2.yum方式
-yum install docker
+# http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+# https://download.docker.com/linux/centos/docker-ce.repo
+# 2.添加镜像源
+curl -o /etc/yum.repos.d/docker-ce.repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
-# docker启动
+# 3.将软件包添加至本地缓存
+yum makecache fast
+
+# 4.安装docker-ce
+yum list|grep docker | sort -r
+yum install docker-ce
+# yum install docker
+
+# 5.启动docker
 systemctl start docker
-
 systemctl enable docker
 
 
