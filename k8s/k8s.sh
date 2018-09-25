@@ -22,7 +22,7 @@ systemctl start kube-proxy
 #https://kubernetes.io/docs/setup/independent/install-kubeadm/
 #yum install kubelet kubeadm kubectl --disableexcludes=kubernetes
 
-
+#https://www.cnblogs.com/Leo_wl/p/8511902.html
 # 
 setenforce 0
 yum install kubelet kubeadm kubectl --disableexcludes=kubernetes
@@ -33,3 +33,16 @@ systemctl enable kubelet
 kubeadm init --kubernetes-version=v1.9.0 --pod-network-cidr=10.244.0.0/16
 
 kubeadm init --pod-network-cidr=192.168.1.102/16
+
+
+Master 管理节点包含组件：
+	docker
+	etcd
+	kube-apiserver
+	kube-controller-manager
+	kubelet
+	kube-scheduler
+Minion 工作节点包含组件：
+	docker
+	kubelet
+	kube-proxy
