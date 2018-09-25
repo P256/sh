@@ -1,7 +1,7 @@
 apiVersion: v1            # 必选-版本号
 kind: Service             # 必选-Service
 metadata:                 # 必选-元数据
-  name: nginx-service     # 必选-Pod名称
+  name: nginx-svc         # 必选-Pod名称
   namespace: default      # 必选-Pod所属的命名空间
   labels:                 # 自定义标签
     - name: nginx         # 自定义标签名字
