@@ -1,17 +1,17 @@
-####################################################################################################
 # 二进制版本
-curl -O https://dl.influxdata.com/influxdb/releases/influxdb-1.6.2_linux_amd64.tar.gz
+curl -O https://dl.influxdata.com/influxdb/releases/influxdb-1.7.4_linux_amd64.tar.gz
 #
-mkdir ../influxdb ../influxdb/etc ../influxdb/log /data/influxdb
+mv influxdb-1.7.4-1 influxdb
 #
-cp -fr ./influxdb-1.6.2-1/usr/bin ../influxdb/
+mkdir -p /usr/local/influxdb/etc /usr/local/influxdb/log
 #
-cp -fr ./influxdb-1.6.2-1/etc/influxdb/influxdb.conf ../influxdb/etc
+cp -fr influxdb/usr/bin /usr/local/influxdb/
 #
-cd ../influxdb
+cp -fr influxdb/etc/influxdb/influxdb.conf /usr/local/influxdb/etc/
 #
-./bin/influxd -config ./etc/influxdb.conf
+cd /usr/local/influxdb
 #
+bin/influxd -config etc/influxdb.conf
 
 
 
