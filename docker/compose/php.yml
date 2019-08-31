@@ -1,0 +1,49 @@
+version: "3"
+networks:
+  php:
+    driver: bridge
+    # ipam:
+    #   config:
+    #     - subnet: 172.18.0.0/16
+services:
+  nginx:
+    build: ../nginx
+    networks:
+      - php
+        # ipv4_address: 172.18.0.2
+    ports:
+      - "80:80"
+    volumes:
+      - /docker/www:/var/www/html
+    restart: always
+    links:
+      - php
+  php:
+    build: ../php
+    networks:
+      - php
+    volumes:
+      - /docker/www:/var/www/html
+    restart: always
+    links:
+      - mysql
+      - redis
+  mysql:
+    image: mysql:5.7.15
+    networks:
+      - php
+    ports:
+      - "3306:3306"
+    volumes:
+      - /docker/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: web
+      MYSQL_PASSWORD: web
+  redis:
+    image: redis
+    networks:
+      - php
+    ports:
+      - "6379:6379"

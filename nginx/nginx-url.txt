@@ -1,4 +1,0 @@
-http://zlib.net/zlib-1.2.8.tar.gz
-http://www.openssl.org/source/openssl-1.0.1p.tar.gz
-http://nchc.dl.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz
-http://nginx.org/download/nginx-1.8.0.tar.gz

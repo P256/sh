@@ -1,0 +1,59 @@
+version: "3"
+networks:
+  app:
+    driver: overlay
+services:
+  nginx:
+    build: ../nginx
+    networks:
+      - app
+    ports:
+      - "80:80"
+    volumes:
+      - /docker/www:/var/www/html
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 2
+    links:
+      - php
+  php:
+    build: ../php
+    networks:
+      - app
+    ports:
+      - "9000:9000"
+    volumes:
+      - /docker/www:/var/www/html
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 2
+    links:
+      - mysql
+      - redis
+  mysql:
+    image: mysql:5.7.15
+    networks:
+      - app
+    ports:
+      - "3306:3306"
+    volumes:
+      - /docker/mysql:/var/lib/mysql
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: web
+      MYSQL_PASSWORD: web
+  redis:
+    image: redis
+    networks:
+      - app
+    ports:
+      - "6379:6379"
+    deploy:
+      mode: replicated
+      replicas: 2

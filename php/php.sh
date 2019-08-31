@@ -1,6 +1,6 @@
 !/usr/bin/bash
 clear
-#source res.sh
+#source ../env.sh
 ######################################################################################################
 echo "2.设置php目录"
 phpPath=/usr/local/php

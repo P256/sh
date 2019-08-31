@@ -1,0 +1,61 @@
+###########################################
+#####主配置文件nginx.conf参数优化要点######
+###########################################
+
+1.worker_processes及 worker_connections配置
+    #默认配置<默认配置中worker_processes及worker_connections的数目有点小,只能应付1000次/秒以内的请求>
+    worker_processes  1;
+    worker_connections  1024;
+
+	通常情况下,worker_processes设置为cpu数目,worker_connections保持1024即可;
+	可以使用cat /proc/cpuinfo |grep processor来查看CPU数量
+
+2.隐藏Ngnix版本信息
+    server_tokens off;  
+
+3.拒绝web访问系统隐藏文件
+    location ~ /. {  
+        access_log off;  
+        log_not_found off;   
+        deny all;  
+    }  
+
+4.限制最大文件上传大小 
+    client_max_body_size 20m;  
+    client_body_buffer_size 128k;  
+
+5.Nginx静态文件缓存控制【浏览器缓存非常有利于节省带宽，在Nginx中非常容易配置】
+    location ~* .(jpg|jpeg|gif|png|css|js|ico|xml)$ {  
+        access_log        off;
+        log_not_found     off;
+        expires           360d;
+    }
+
+6. Ngnix转发PHP请求至PHP-FPM
+    #Pass PHP scripts to PHP-FPM  
+    location ~* .php$ {
+        try_files       $uri /index.php;
+        fastcgi_index   index.php;
+        fastcgi_pass    127.0.0.1:9000;
+        #fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+        include         fastcgi_params;
+        fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+        fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
+    }
+
+7. 开启GZIP压缩
+    gzip on;
+    gzip_min_length  1k;
+    gzip_buffers	4 16k;
+    gzip_http_version 1.0;
+    gzip_comp_level 2;
+    gzip_types	text/plain application/x-javascript text/css
+    application/xml;
+    gzip_vary on;
+
+手册
+http://www.nginx.cn/doc/
+http://blog.csdn.net/dc_726/article/details/11950189
+http://www.cszhi.com/20120513/nginx_nginx-conf.html
+http://blog.csdn.net/h70614959/article/details/26716165
+
