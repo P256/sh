@@ -30,3 +30,9 @@ tar zxvf zookeeper-3.4.13.tar.gz
 mv zookeeper-3.4.13 zookeeper
 #
 mv zookeeper ../
+# 
+bin/kafka-server-start.sh config/server.properties
+#
+bin/kafka-server-stop.sh
+# 
+ss -lnp | grep 2181

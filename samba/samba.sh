@@ -64,3 +64,17 @@ vim /etc/selinux/config
 # 配置文件说明
 vim /etc/samba/smb.conf
 
+###########################################################################################
+# Linux 挂着 windows 共享
+###########################################################################################
+# 
+# mount -l
+# 挂载win共享文件夹
+# mount -t cifs -o username="S256",password="sa123456",rw,dir_mode=0775,file_mode=0775,uid=994,gid=992 //192.168.8.1/code/php /data/web
+# 卸载win共享文件夹
+# umount /data/web
+# 如：
+# mount -t cifs -o username="S256",password="sa123456",rw,dir_mode=0775,file_mode=0775,uid=995,gid=993 //192.168.8.1/code/php /data/web
+# mount -t cifs -o username="S256",password="sa123456" //192.168.8.1/code/pack /
+# 
+###########################################################################################
