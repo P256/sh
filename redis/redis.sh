@@ -13,6 +13,7 @@ mkdir -p /data
 mkdir -p /data/redis
 mkdir -p /data/redis/6379
 #下载
+# http://download.redis.io/releases/redis-5.0.5.tar.gz
 curl -O http://download.redis.io/releases/${version}.tar.gz
 #解压
 tar -zxvf ${version}.tar.gz
@@ -50,6 +51,10 @@ netstat -lntp | grep 6379
  
 #使用客户端
 redis-cli shutdown
+
+# env
+export REDIS_HOME=/usr/local/redis
+export PATH=$REDIS_HOME/bin:$PATH
  
 #配置一个系统服务
 #cp utils/redis_init_script /etc/rc.d/init.d/redis

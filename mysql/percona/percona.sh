@@ -9,12 +9,12 @@ yum -y remove mariadb*
 echo "2.设置percona目录"
 # 设置mysql目录
 mysqlData=/data/percona
-mysqlLog=/data/log/percona
+mysqlLog=/var/log/percona
 mysqlPath=/usr/local/percona
-mysqlEtc=$mysqlPath/etc
+mysqlEtc=/etc
 mysqlTmp=/tmp
 # 创建mysql目录
-mkdir $mysqlPath $mysqlData $mysqlLog $mysqlEtc
+mkdir -p $mysqlPath $mysqlData $mysqlLog $mysqlEtc
 # 设置mysql用户
 mysqlUser=percona
 mysqlGroup=percona
@@ -50,12 +50,13 @@ tar zxf boost_1_59_0.tar.gz
 #
 # 下载地址
 # https://www.percona.com/downloads/Percona-Server-LATEST/Percona-Server-5.7.17-12/source/tarball/percona-server-5.7.17-12.tar.gz
+# https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.27-30/source/tarball/percona-server-5.7.27-30.tar.gz
 echo "4.2下载Percona"
-mysql=percona-server-5.7.17-12
-curl -O https://www.percona.com/downloads/Percona-Server-LATEST/Percona-Server-5.7.17-12/source/tarball/percona-server-5.7.17-12.tar.gz
+mysqlVersion=percona-server-5.7.27-30
+curl -O https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.27-30/source/tarball/percona-server-5.7.27-30.tar.gz
 echo "5.安装Percona"
-tar zxf $mysql.tar.gz
-cd $mysql
+tar zxf $mysqlVersion.tar.gz
+cd $mysqlVersion
 # 编译配置
 cmake -DCMAKE_INSTALL_PREFIX=$mysqlPath \
 -DMYSQL_UNIX_ADDR=$mysqlTmp/percona.sock \

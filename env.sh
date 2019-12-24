@@ -43,7 +43,7 @@ yum repolist
 ######################################################################################################
 echo "常用工具"
 # 安装常用的编译工具
-# yum install gcc gcc-c++ -y
+yum install gcc gcc-c++ -y
 # 测试工具
 # yum install sysbench
 # 工具类

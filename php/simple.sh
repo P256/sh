@@ -1,5 +1,5 @@
 #下载二进制包
-curl -O http://cn2.php.net/distributions/php-7.1.0.tar.gz 
+curl -O https://www.php.net/distributions/php-7.1.32.tar.xz
 
 #安装编译php7时需要的依赖包
 yum -y install libxml2 libxml2-devel openssl openssl-devel curl-devel libjpeg-devel libpng-devel freetype-devel libmcrypt-devel

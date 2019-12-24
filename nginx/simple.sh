@@ -1,34 +1,6 @@
 !/usr/bin/bash
 clear
-#source res.sh
-######################################################################################################
-echo "1.检查系统是否安装apache"
-rpm -qa | grep httpd*
-yum -y remove httpd*
-######################################################################################################
-echo "2.设置nginx目录"
-# 设置web目录
-webData=/data/web
-webLog=/data/log/web
-webPath=/usr/local/nginx
-webEtc=/etc/nginx
-webTmp=/tmp/nginx
-# 设置web用户
-webUser=web
-webGroup=web
-# 创建web目录
-mkdir -p $webPath $webData $webLog $webEtc
-# 创建用户(组)赋予家目录
-groupadd -r $webUser
-useradd -g $webUser -r -s /sbin/nologin -M -d $webData $webGroup
-# 赋予web权限
-chown -R $webUser:$webUser $webData $webPath $webLog
-######################################################################################################
-echo "3.进入源码目录"
-# 进入源码目录
-cd /usr/local/src
-######################################################################################################
-echo "4.安装依赖包"
+
 # http://zlib.net/zlib-1.2.11.tar.gz
 # https://www.openssl.org/source/openssl-1.1.0e.tar.gz
 # http://nchc.dl.sourceforge.net/project/pcre/pcre/8.40/pcre-8.40.tar.gz
@@ -79,7 +51,17 @@ cd $nginx
 # 
 # 
 # 
-./configure --prefix=$webPath --user=$webUser --group=$webGroup --sbin-path=$webPath/sbin/nginx --conf-path=$webEtc/conf/nginx.conf --pid-path=$webTmp/nginx.pid --lock-path=$webTmp/nginx.lock --http-log-path=$webLog/http.log --error-log-path=$webLog/error.log --http-client-body-temp-path=$webTmp/client/ --http-proxy-temp-path=$webTmp/proxy --http-fastcgi-temp-path=$webTmp/fastcgi --http-uwsgi-temp-path=$webTmp/uwsgi --http-scgi-temp-path=$webTmp/scgi --with-pcre=../$pcre --with-zlib=../$zlib --with-threads --with-http_stub_status_module --with-openssl=../$openssl --with-http_ssl_module --with-debug  --with-stream
+
+
+./configure --prefix=/usr/local/nginx --user=web --group=web --pid-path=/usr/local/nginx/nginx.pid --lock-path=/usr/local/nginx/nginx.lock --with-pcre=../pcre-8.40 --with-zlib=../zlib-1.2.11 --with-threads --with-http_stub_status_module --with-debug --with-stream --http-client-body-temp-path=/usr/local/nginx/tmp/client/ --http-proxy-temp-path=/usr/local/nginx/tmp/proxy --http-fastcgi-temp-path=/usr/local/nginx/tmp/fastcgi --http-uwsgi-temp-path=/usr/local/nginx/tmp/uwsgi --http-scgi-temp-path=/usr/local/nginx/tmp/scgi
+
+
+ --http-log-path=/usr/local/nginx/log/http.log --error-log-path=/usr/local/nginx/log/error.log 
+
+ 
+
+
+
 
 # 
 

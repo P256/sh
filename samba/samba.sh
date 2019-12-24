@@ -11,7 +11,7 @@ yum install samba
 cp /etc/samba/smb.conf /etc/samba/smb.conf.bakup
 
 # 编辑smb.conf
-vim /etc/samba/smb.conf
+vi /etc/samba/smb.conf
 
 # 创建用户组
 groupadd web
@@ -71,10 +71,14 @@ vim /etc/samba/smb.conf
 # mount -l
 # 挂载win共享文件夹
 # mount -t cifs -o username="S256",password="sa123456",rw,dir_mode=0775,file_mode=0775,uid=994,gid=992 //192.168.8.1/code/php /data/web
+# 
 # 卸载win共享文件夹
 # umount /data/web
 # 如：
 # mount -t cifs -o username="S256",password="sa123456",rw,dir_mode=0775,file_mode=0775,uid=995,gid=993 //192.168.8.1/code/php /data/web
 # mount -t cifs -o username="S256",password="sa123456" //192.168.8.1/code/pack /
 # 
+
+# mount -t cifs -o username="YF",password="sa123456",rw,dir_mode=0775,file_mode=0775,uid=997,gid=995 //192.168.1.102/code/ /data/web
+
 ###########################################################################################
