@@ -3,18 +3,14 @@
 ##	docker
 ##########################################################################
 yum install docker -y
-#
 systemctl enable docker
-# 
 cat <<EOF > /etc/docker/daemon.json
 {
   "registry-mirrors": ["https://bmmsq0wm.mirror.aliyuncs.com"],
   "graph": "/data/docker"
 }
 EOF
-#
 systemctl start docker
-# 
 docker info
 ##########################################################################
 ##	构建私有仓库
